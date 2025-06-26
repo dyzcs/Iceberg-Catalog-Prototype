@@ -31,11 +31,11 @@ public class SnapshotArray {
         return j < 0 ? 0 : h.get(j)[1];
     }
 
-    // 二分查找
-    // 返回最大的下标 i，满足 h[i][0] <= x
-    // 如果不存在则返回 -1
+    // Binary search
+    // Return the largest index i that satisfies h[i][0] <= x
+    // If it does not exist, return -1
     private int search(List<int[]> h, int x) {
-        // 开区间 (left, right)
+        // (left, right)
         int left = -1;
         int right = h.size();
         while (left + 1 < right) {
@@ -47,9 +47,9 @@ public class SnapshotArray {
             }
         }
 
-        // 根据循环不变量，此时 h[left][0] <= x 且 h[left+1][0] = h[right][0] > x
-        // 所以 left 是最大的满足 h[left][0] <= x 的下标
-        // 如果不存在，则 left 为其初始值 -1
+        // According to the loop invariant, at this time h[left][0] <= x and h[left+1][0] = h[right][0] > x
+        // So left is the largest subscript that satisfies h[left][0] <= x
+        // If it does not exist, left is its initial value -1
         return left;
     }
 }
